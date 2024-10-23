@@ -25,18 +25,28 @@ const emit = defineEmits<IEmit>()
 const startTime = ref(0)
 const finishTime = ref(0)
 const selectedAnswer = ref('')
-
+let currentSoundSource: AudioBufferSourceNode | null = null
 const shuffledAnswers = computed(() => {
   return shuffle(props.question.answers)
 })
 
 function handleSelectAnswer(answer: string) {
   finishTime.value = Date.now()
-  playSound('/audio/drop.mp3', 0.3)
+  playSound('/audio/drop.mp3', 0.3).then(source => {
+    currentSoundSource = source
+  })
   selectedAnswer.value = answer
   emit('selectAnswer', selectedAnswer.value)
   const timeTaken = (finishTime.value - startTime.value) / 1000
   emit('sumUpTakenTime', timeTaken)
+  stopSound()
+}
+
+function stopSound() {
+  if (currentSoundSource) {
+    currentSoundSource.stop()
+    currentSoundSource = null
+  }
 }
 
 watch(

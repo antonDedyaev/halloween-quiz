@@ -13,4 +13,6 @@ export async function playSound(url: string, volume: number = 0.2) {
 
   gainNode.gain.value = volume
   source.start(0)
+
+  return source
 }

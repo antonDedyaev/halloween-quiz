@@ -7,8 +7,19 @@ interface IHorrorButtonProps {
 }
 defineProps<IHorrorButtonProps>()
 
+let currentSoundSource: AudioBufferSourceNode | null = null
 function playButtonPressSound() {
-  playSound('/audio/bone-crack.mp3', 0.1)
+  playSound('/audio/bone-crack.mp3', 0.1).then(source => {
+    currentSoundSource = source
+  })
+  stopSound()
+}
+
+function stopSound() {
+  if (currentSoundSource) {
+    currentSoundSource.stop()
+    currentSoundSource = null
+  }
 }
 </script>
 
