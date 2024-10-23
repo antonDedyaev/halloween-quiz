@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'Creepster';
+  src: url('fonts/creepster.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vampire';
+  src: url('fonts/vampire95.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ustroke';
+  src: url('fonts/ustroke.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --main: #fe772d;
+  --white: #fff;
+  --jet-black: #222;
+  --charcoal: #333;
+  --dark: #444;
+  --dim-gray: #444;
+  --background: #000;
+  --red: #ff4e00;
+  --orange: #ff8c00;
+  --green: #28a745;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--black);
+  overflow: hidden;
+}
+
+body,
+textarea,
+button {
+  font-family: Creepster, sans-serif;
+  font-weight: 500;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
