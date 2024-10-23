@@ -1,4 +1,5 @@
 # halloween-quiz
+Movies Halloween Quiz for ITpelag
 
 This template should help get you started developing with Vue 3 in Vite.
 
